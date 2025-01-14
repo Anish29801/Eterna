@@ -1,0 +1,51 @@
+/* Color Variables */
+:root {
+    --primary-red-light: #f58a7b; /* Lighter shade of red */
+    --primary-red: #e74c3c;      /* Vibrant red */
+    --gradient-red: linear-gradient(90deg, var(--primary-red-light), var(--primary-red));
+    --neutral-gray: #ecf0f1;     /* Light gray */
+    --dark-blue-gray: #2c3e50;   /* Dark blue-gray */
+    --bright-blue: #3498db;      /* Bright blue */
+  }
+  
+  /* Gradient Background */
+  .gradient-bg {
+    background: var(--gradient-red);
+  }
+  
+  /* Example Usage */
+  .body {
+    background-color: var(--neutral-gray);
+    color: var(--dark-blue-gray);
+  }
+  
+  .button {
+    background: var(--gradient-red);
+    color: var(--neutral-gray);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .button:hover {
+    background: var(--primary-red);
+  }
+  
+  .header {
+    background: var(--dark-blue-gray);
+    color: var(--neutral-gray);
+  }
+  
+  .link {
+    color: var(--bright-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .link:hover {
+    color: var(--primary-red);
+  }
+  

@@ -1,0 +1,37 @@
+/* Google Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Utility Font Classes */
+
+/* Sans-Serif Font */
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Serif Font */
+.font-merriweather {
+    font-family: 'Merriweather', serif;
+}
+
+/* Accent/Display Font */
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Default Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+}
+
+.quote, .banner-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
