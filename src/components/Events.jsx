@@ -1,5 +1,6 @@
 import React from "react";
 import { MdEvent, MdLocalOffer, MdLocationOn, MdDateRange } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 // Static data for events
 const events = [
@@ -60,6 +61,12 @@ const events = [
 ];
 
 const Events = () => {
+  const navigate = useNavigate();
+
+  const handleBookTickets = (eventId) => {
+    navigate(`/tickets`);
+  };
+
   return (
     <div className="bg-gray-100 py-10">
       <h2 className="text-2xl font-bold text-center text-gray-800 mb-8 flex items-center justify-center gap-2">
@@ -107,7 +114,10 @@ const Events = () => {
                   </p>
                 </div>
               </div>
-              <button className="mt-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:from-orange-500 hover:to-orange-700 transition">
+              <button
+                onClick={() => handleBookTickets(event.id)}
+                className="mt-4 bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-2 rounded-lg font-bold hover:from-orange-500 hover:to-orange-700 transition"
+              >
                 Book Tickets
               </button>
             </div>

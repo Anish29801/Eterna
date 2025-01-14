@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import hero_bg1 from "../assets/hero_bg1.jpg";
 import hero_bg2 from "../assets/hero_bg2.jpg";
 import hero_bg3 from "../assets/hero_bg3.jpg";
 
-const slider = () => {
+const Slider = () => {
   const slides = [
     {
       text: "Explore the Rich History of Art",
@@ -20,6 +21,7 @@ const slider = () => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,10 +60,16 @@ const slider = () => {
               </p>
               {/* Buttons */}
               <div className="flex gap-4 mt-4">
-                <button className="text-white px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition">
+                <button
+                  onClick={() => navigate("/tickets")}
+                  className="text-white px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition"
+                >
                   Book Tickets
                 </button>
-                <button className="border-2 border-[var(--primary-red)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[var(--primary-red)] hover:text-white">
+                <button
+                  onClick={() => navigate("/events")}
+                  className="border-2 border-[var(--primary-red)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[var(--primary-red)] hover:text-white transition"
+                >
                   Upcoming Events
                 </button>
               </div>
@@ -73,4 +81,4 @@ const slider = () => {
   );
 };
 
-export default slider;
+export default Slider;

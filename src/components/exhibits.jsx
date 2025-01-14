@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // Import images from the assets folder
 import e1 from "../assets/e1.webp";
@@ -30,6 +31,12 @@ const exhibitsJSON = [
 ];
 
 const Exhibits = () => {
+    const navigate = useNavigate();
+
+    const handleBookTickets = () => {
+        navigate("/tickets");
+    };
+
     return (
         <div className="bg-gray-100 py-12">
             {/* Vision Statement Section */}
@@ -60,8 +67,11 @@ const Exhibits = () => {
             {/* Invitation to see more */}
             <section className="text-center mt-8">
                 <p className="text-lg text-gray-600">Want to explore more exhibits? Visit us today and experience the past come alive.</p>
-                <button className="mt-3 text-white px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition">
-                  Book Tickets
+                <button
+                    onClick={handleBookTickets}
+                    className="mt-3 text-white px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition"
+                >
+                    Book Tickets
                 </button>
             </section>
         </div>

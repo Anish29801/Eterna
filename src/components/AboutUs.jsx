@@ -114,15 +114,15 @@ const AboutUs = () => {
           ))}
         </div>
 
-          {/* Become a Member Button */}
-      <div className="text-center pt-3">
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-gradient-to-r from-green-400 to-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 transition"
-        >
-          Become a Member
-        </button>
-      </div>
+        {/* Become a Member Button */}
+        <div className="text-center pt-3">
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-gradient-to-r from-green-400 to-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-green-500 hover:to-green-600 transition"
+          >
+            Become a Member
+          </button>
+        </div>
       </section>
 
       {/* Testimonials Section */}
@@ -144,7 +144,16 @@ const AboutUs = () => {
       {/* Modal for Membership Form */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg w-80">
+          <div className="bg-white p-8 rounded-lg w-80 relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+
             <h3 className="text-xl font-semibold text-center mb-4">Become a Member</h3>
             <p className="text-center mb-4 text-gray-600">You will get VIP access to Exhibits</p>
             <form onSubmit={handleFormSubmit}>
@@ -190,7 +199,6 @@ const AboutUs = () => {
           </div>
         </div>
       )}
-
       {/* Custom Membership Popup */}
       {showMemberPopup && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
