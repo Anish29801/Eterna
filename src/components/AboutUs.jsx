@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { FaUserTie, FaQuoteLeft } from "react-icons/fa";
 import { MdTimeline } from "react-icons/md";
 import { IoPeopleCircleSharp } from "react-icons/io5";
-import { AiOutlineComment } from "react-icons/ai";
 import logo from "../assets/logo.png";
 
 const directors = [
   { id: 1, name: "Jane Doe", role: "Executive Director", image: "https://randomuser.me/api/portraits/women/40.jpg" },
-  { id: 2, name: "John Smith", role: "Creative Director", image: "https://randomuser.me/api/portraits/men/20.jpg" },
-  { id: 3, name: "Alice Green", role: "Operations Director", image: "https://randomuser.me/api/portraits/women/50.jpg" },
+  { id: 2, name: "John Smith", role: "Operations Director", image: "https://randomuser.me/api/portraits/men/20.jpg" },
+  { id: 3, name: "Alice Green", role: "Creative Director", image: "https://randomuser.me/api/portraits/women/50.jpg" },
 ];
 
 const members = [
@@ -18,10 +17,41 @@ const members = [
 ];
 
 const testimonials = [
-  { id: 1, name: "Alice White", feedback: "An exceptional experience! The dedication of the team is evident in every exhibit." },
-  { id: 2, name: "Robert Green", feedback: "A masterpiece of creativity and innovation. Truly inspiring!" },
-  { id: 3, name: "Jessica Lee", feedback: "The exhibits are so well-curated, and the team is incredibly knowledgeable." },
+  {
+    id: 1,
+    name: "Alice White",
+    feedback: (
+      <>
+        An <span className="font-bold text-yellow-500">exceptional experience</span>! The{" "}
+        <span className="font-bold text-yellow-500">dedication</span> of the team is evident in every exhibit.
+      </>
+    ),
+    image: "https://randomuser.me/api/portraits/women/32.jpg",
+  },
+  {
+    id: 2,
+    name: "Robert Green",
+    feedback: (
+      <>
+        A <span className="font-bold text-yellow-500">masterpiece</span> of creativity and{" "}
+        <span className="font-bold text-yellow-500">innovation</span>. Truly inspiring!
+      </>
+    ),
+    image: "https://randomuser.me/api/portraits/men/61.jpg",
+  },
+  {
+    id: 3,
+    name: "Jessica Rivers",
+    feedback: (
+      <>
+        The exhibits are so <span className="font-bold text-yellow-500">well-curated</span>, and the team is{" "}
+        <span className="font-bold text-yellow-500">incredibly knowledgeable</span>.
+      </>
+    ),
+    image: "https://randomuser.me/api/portraits/women/64.jpg",
+  },
 ];
+
 
 const timeline = [
   { year: "1998", event: "Eterna was founded." },
@@ -66,7 +96,7 @@ const AboutUs = () => {
           ))}
         </div>
       </section>
-      
+
       {/* Logo */}
       <div className="flex justify-center mb-8">
         <img src={logo} alt="Logo" className="h-20 object-contain" />
@@ -119,21 +149,32 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="mb-12 px-4">
-        <h2 className="text-2xl font-bold text-center mb-6">
-          <FaQuoteLeft className="inline text-yellow-500" /> Testimonials
-        </h2>
-        <div className="space-y-6">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white shadow-lg p-6 rounded-lg">
-              <AiOutlineComment className="text-gray-400 text-3xl mb-4" />
-              <p className="italic text-gray-700 mb-2">"{testimonial.feedback}"</p>
-              <span className="block text-right font-bold text-gray-800">- {testimonial.name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* Testimonials */}
+<section className="mb-12 px-4">
+  <h2 className="text-3xl font-bold text-center mb-8">
+    <FaQuoteLeft className="inline text-yellow-500" /> Testimonials
+  </h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {testimonials.map((testimonial) => (
+      <div
+        key={testimonial.id}
+        className="bg-white shadow-lg p-6 rounded-lg flex flex-col items-center text-center"
+      >
+        {/* Profile Image */}
+        <img
+          src={testimonial.image}
+          alt={`${testimonial.name}'s picture`}
+          className="w-17 h-17 rounded-full border-4 border-yellow-500 object-cover mb-4"
+        />
+        {/* Feedback */}
+        <p className="italic text-gray-700 mb-2">"{testimonial.feedback}"</p>
+        {/* Name */}
+        <span className="font-bold text-gray-800">- {testimonial.name}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Modal */}
       {showModal && (
